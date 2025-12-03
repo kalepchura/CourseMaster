@@ -14,7 +14,6 @@ import androidx.compose.ui.unit.dp
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RegisterScreen(
@@ -28,7 +27,6 @@ fun RegisterScreen(
     var confirmPasswordVisible by remember { mutableStateOf(false) }
     var isLoading by remember { mutableStateOf(false) }
     var errorMessage by remember { mutableStateOf<String?>(null) }
-
     val scope = rememberCoroutineScope()
     val auth = FirebaseAuth.getInstance()
 
@@ -52,7 +50,6 @@ fun RegisterScreen(
                 style = MaterialTheme.typography.headlineMedium,
                 modifier = Modifier.padding(bottom = 32.dp)
             )
-
             // Mostrar error
             errorMessage?.let { error ->
                 Card(
@@ -70,8 +67,6 @@ fun RegisterScreen(
                     )
                 }
             }
-
-            // Campo Email
             OutlinedTextField(
                 value = email,
                 onValueChange = { email = it },
@@ -184,9 +179,7 @@ fun RegisterScreen(
                     Text("Registrarse")
                 }
             }
-
             Spacer(modifier = Modifier.height(16.dp))
-
             // Botón Volver
             TextButton(
                 onClick = onNavigateBack,

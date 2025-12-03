@@ -1,43 +1,26 @@
 package com.example.coursemaster.data.model
 
+import com.google.firebase.auth.FirebaseAuth
+
 data class Course(
     val id: String = "",
     val nombre: String = "",
     val categoria: String = "",
     val duracion: String = "",
-    val estado: String = ""
-
-    constructor() : this("", "", "", "", "")
-
-    // Convertir a Map para Firestore
+    val estado: String = "",
+    val userId: String = ""
+) {
+    constructor() :
+            this("", "",
+                "", "",
+                "", "")
     fun toMap(): Map<String, Any> {
         return mapOf(
             "nombre" to nombre,
             "categoria" to categoria,
             "duracion" to duracion,
-            "estado" to estado
+            "estado" to estado,
+            "userId" to userId
         )
     }
 }
-
-// Si prefieres Product en lugar de Course:
-/*
-data class Product(
-    val id: String = "",
-    val nombre: String = "",
-    val precio: Double = 0.0,
-    val stock: Int = 0,
-    val categoria: String = ""
-) {
-    constructor() : this("", "", 0.0, 0, "")
-
-    fun toMap(): Map<String, Any> {
-        return mapOf(
-            "nombre" to nombre,
-            "precio" to precio,
-            "stock" to stock,
-            "categoria" to categoria
-        )
-    }
-}
-*/

@@ -13,20 +13,18 @@ sealed class Screen(val route: String) {
     object Register : Screen("register")
     object CourseList : Screen("course_list")
     object CreateCourse : Screen("create_course")
-    object EditCourse : Screen("edit_course/{courseId}") {
-        fun createRoute(courseId: String) = "edit_course/$courseId"
+    object EditCourse : Screen("editCurso/{courseId}") {
+        fun createRoute(courseId: String) = "editCurso/$courseId"
     }
 }
 
 @Composable
 fun AppNavigation(startDestination: String = Screen.Login.route) {
     val navController = rememberNavController()
-
     NavHost(
         navController = navController,
         startDestination = startDestination
     ) {
-        // Pantalla Login
         composable(Screen.Login.route) {
             LoginScreen(
                 onLoginSuccess = {
@@ -39,8 +37,6 @@ fun AppNavigation(startDestination: String = Screen.Login.route) {
                 }
             )
         }
-
-        // Pantalla Registro
         composable(Screen.Register.route) {
             RegisterScreen(
                 onRegisterSuccess = {
@@ -53,8 +49,6 @@ fun AppNavigation(startDestination: String = Screen.Login.route) {
                 }
             )
         }
-
-        // Pantalla Lista de Cursos
         composable(Screen.CourseList.route) {
             CourseListScreen(
                 onNavigateToCreate = {
@@ -70,8 +64,6 @@ fun AppNavigation(startDestination: String = Screen.Login.route) {
                 }
             )
         }
-
-        // Pantalla Crear Curso
         composable(Screen.CreateCourse.route) {
             CreateCourseScreen(
                 onNavigateBack = {
@@ -79,8 +71,6 @@ fun AppNavigation(startDestination: String = Screen.Login.route) {
                 }
             )
         }
-
-        // Pantalla Editar Curso
         composable(
             route = Screen.EditCourse.route,
             arguments = listOf(

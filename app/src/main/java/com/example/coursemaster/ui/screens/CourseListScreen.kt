@@ -9,6 +9,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.coursemaster.data.model.Course
@@ -25,7 +26,6 @@ fun CourseListScreen(
 ) {
     val uiState by viewModel.uiState.collectAsState()
     var showLogoutDialog by remember { mutableStateOf(false) }
-
     Scaffold(
         topBar = {
             TopAppBar(
@@ -48,7 +48,6 @@ fun CourseListScreen(
                 .fillMaxSize()
                 .padding(padding)
         ) {
-            // Mostrar errores o mensajes
             uiState.error?.let { error ->
                 Text(
                     text = error,
@@ -88,8 +87,7 @@ fun CourseListScreen(
             }
         }
     }
-
-    // Diálogo de confirmación de logout
+    // Confirmacion de cierre
     if (showLogoutDialog) {
         AlertDialog(
             onDismissRequest = { showLogoutDialog = false },

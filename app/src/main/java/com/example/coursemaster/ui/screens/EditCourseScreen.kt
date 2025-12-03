@@ -26,7 +26,6 @@ fun EditCourseScreen(
     var estado by remember { mutableStateOf("Activo") }
     var expandedEstado by remember { mutableStateOf(false) }
     var isLoading by remember { mutableStateOf(true) }
-
     val uiState by viewModel.uiState.collectAsState()
 
     // Cargar curso actual
@@ -49,7 +48,6 @@ fun EditCourseScreen(
             onNavigateBack()
         }
     }
-
     Scaffold(
         topBar = {
             TopAppBar(
@@ -102,7 +100,6 @@ fun EditCourseScreen(
                     modifier = Modifier.fillMaxWidth(),
                     singleLine = true
                 )
-
                 OutlinedTextField(
                     value = duracion,
                     onValueChange = { duracion = it },
@@ -129,7 +126,6 @@ fun EditCourseScreen(
                             .fillMaxWidth()
                             .menuAnchor()
                     )
-
                     ExposedDropdownMenu(
                         expanded = expandedEstado,
                         onDismissRequest = { expandedEstado = false }

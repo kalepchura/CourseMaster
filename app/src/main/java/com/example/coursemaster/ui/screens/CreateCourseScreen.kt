@@ -59,7 +59,6 @@ fun CreateCourseScreen(
                     style = MaterialTheme.typography.bodySmall
                 )
             }
-
             // Campo Nombre
             OutlinedTextField(
                 value = nombre,
@@ -68,7 +67,6 @@ fun CreateCourseScreen(
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true
             )
-
             // Campo Categoría
             OutlinedTextField(
                 value = categoria,

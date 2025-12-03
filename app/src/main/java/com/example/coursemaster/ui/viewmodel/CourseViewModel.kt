@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.coursemaster.data.model.Course
 import com.example.coursemaster.data.repository.CourseRepository
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -17,7 +18,9 @@ data class CourseUiState(
 )
 
 class CourseViewModel : ViewModel() {
+
     private val repository = CourseRepository()
+    private val auth = FirebaseAuth.getInstance()
 
     private val _uiState = MutableStateFlow(CourseUiState())
     val uiState: StateFlow<CourseUiState> = _uiState.asStateFlow()
@@ -26,8 +29,9 @@ class CourseViewModel : ViewModel() {
         loadCourses()
     }
 
-    // Cargar cursos en tiempo real
     private fun loadCourses() {
+        val uid = auth.currentUser?.uid ?: return
+
         viewModelScope.launch {
             repository.getCourses().collect { courses ->
                 _uiState.value = _uiState.value.copy(
@@ -38,7 +42,6 @@ class CourseViewModel : ViewModel() {
         }
     }
 
-    // Crear curso
     fun createCourse(
         nombre: String,
         categoria: String,
@@ -48,14 +51,18 @@ class CourseViewModel : ViewModel() {
         viewModelScope.launch {
             _uiState.value = _uiState.value.copy(isLoading = true)
 
+            val uid = auth.currentUser?.uid ?: ""
+
             val course = Course(
                 nombre = nombre,
                 categoria = categoria,
                 duracion = duracion,
-                estado = estado
+                estado = estado,
+                userId = uid  // <-- AHORA SÍ
             )
 
             val result = repository.createCourse(course)
+
             _uiState.value = if (result.isSuccess) {
                 _uiState.value.copy(
                     isLoading = false,
@@ -72,7 +79,6 @@ class CourseViewModel : ViewModel() {
         }
     }
 
-    // Actualizar curso
     fun updateCourse(course: Course) {
         viewModelScope.launch {
             _uiState.value = _uiState.value.copy(isLoading = true)
@@ -94,7 +100,6 @@ class CourseViewModel : ViewModel() {
         }
     }
 
-    // Eliminar curso
     fun deleteCourse(courseId: String) {
         viewModelScope.launch {
             val result = repository.deleteCourse(courseId)
@@ -106,7 +111,6 @@ class CourseViewModel : ViewModel() {
         }
     }
 
-    // Limpiar mensajes
     fun clearMessages() {
         _uiState.value = _uiState.value.copy(
             error = null,

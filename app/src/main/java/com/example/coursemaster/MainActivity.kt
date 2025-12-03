@@ -13,7 +13,6 @@ import com.google.firebase.auth.FirebaseAuth
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContent {
             CourseMasterTheme {
                 Surface(color = MaterialTheme.colorScheme.background) {
@@ -24,7 +23,6 @@ class MainActivity : ComponentActivity() {
                     } else {
                         Screen.Login.route
                     }
-
                     AppNavigation(startDestination = startDestination)
                 }
             }
