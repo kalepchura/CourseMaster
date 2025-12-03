@@ -45,6 +45,25 @@
     },
     {
       "client_info": {
+        "mobilesdk_app_id": "1:208109907758:android:c9f32be97025cc768254bf",
+        "android_client_info": {
+          "package_name": "com.example.coursemaster"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC04iWvh2Mt8MYJa_vY2vdG2YxFSPzEB7k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:208109907758:android:da7ec1b9d42754cd8254bf",
         "android_client_info": {
           "package_name": "com.tecsup.loginchura"

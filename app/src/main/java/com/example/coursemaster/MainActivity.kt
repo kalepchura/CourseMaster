@@ -17,7 +17,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             CourseMasterTheme {
                 Surface(color = MaterialTheme.colorScheme.background) {
-                    // Verificar si hay usuario logueado
+
                     val currentUser = FirebaseAuth.getInstance().currentUser
                     val startDestination = if (currentUser != null) {
                         Screen.CourseList.route
