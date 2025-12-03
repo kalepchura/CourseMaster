@@ -4,10 +4,9 @@ data class Course(
     val id: String = "",
     val nombre: String = "",
     val categoria: String = "",
-    val duracion: String = "", // ej: "40 horas"
-    val estado: String = "" // "Activo" o "Inactivo"
-) {
-    // Constructor vacío requerido por Firebase
+    val duracion: String = "",
+    val estado: String = ""
+
     constructor() : this("", "", "", "", "")
 
     // Convertir a Map para Firestore
