@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "208109907758",
+    "project_id": "loginchura",
+    "storage_bucket": "loginchura.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:208109907758:android:1ba28b7083482d2b8254bf",
+        "android_client_info": {
+          "package_name": "com.example.churalogin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC04iWvh2Mt8MYJa_vY2vdG2YxFSPzEB7k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:208109907758:android:afa545ab8d112e7a8254bf",
+        "android_client_info": {
+          "package_name": "com.example.courseMaster"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC04iWvh2Mt8MYJa_vY2vdG2YxFSPzEB7k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:208109907758:android:da7ec1b9d42754cd8254bf",
+        "android_client_info": {
+          "package_name": "com.tecsup.loginchura"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC04iWvh2Mt8MYJa_vY2vdG2YxFSPzEB7k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
